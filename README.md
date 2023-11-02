@@ -1,0 +1,51 @@
+# NPX Cache Control
+
+[![Latest version](https://img.shields.io/npm/v/npx-cache-control)
+ ![Dependency status](https://img.shields.io/librariesio/release/npm/npx-cache-control)
+](https://www.npmjs.com/package/npx-cache-control)
+
+Lists and purges packages cached when running `npx`.
+
+## Installation
+
+This package is usually installed globally, so that you can use the `npxcc` executable from any directory. You can install it during the first usage with `npx` too:
+
+```sh
+$ npm i -g npx-cache-control
+$ npx npx-cache-control ...
+```
+
+Once installed globally, the script can be executed by a short alias `npxcc` too.
+
+Make sure, that you use [Node.js] version 18 or newer.
+
+## Usage
+
+    Usage: npxcc [options] <command> [parameters]
+
+    Commands:
+      ls|list                       lists packages stored in the npx cache
+      purge|rm|remove|un|uninstall  removes packages from the npx cache
+
+    Parameters:
+      uninstall [names]  names of packages to remove (* means all)
+
+    Options:
+      -V|--version  print the version of the executable and exits
+      -h|--help     print the usage information and exits
+
+    Examples:
+      $ npxcc ls
+      $ npxcc un npx-cache-control
+
+## Contributing
+
+In lieu of a formal styleguide, take care to maintain the existing coding style.  Add unit tests for any new or changed functionality. Lint and test your code using Grunt.
+
+## License
+
+Copyright (c) 2023 Ferdinand Prantl
+
+Licensed under the MIT license.
+
+[Node.js]: http://nodejs.org/
