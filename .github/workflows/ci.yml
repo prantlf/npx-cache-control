@@ -15,9 +15,9 @@ jobs:
 
   linux:
     runs-on: ubuntu-latest
-    outputs:
-      changed: ${{ steps.bump.outputs.bumped }}
-      changed-files: ${{ steps.bump.outputs.changed-files }}
+    # outputs:
+    #   changed: ${{ steps.bump.outputs.bumped }}
+    #   changed-files: ${{ steps.bump.outputs.changed-files }}
     steps:
     - name: Checkout Sources
       uses: actions/checkout@v4
@@ -34,19 +34,18 @@ jobs:
         cache: 'pnpm'
     - name: Install Dependencies
       run: pnpm i --frozen-lockfile --no-verify-store-integrity
-    - name: Bump version
-      id: bump
-      uses: prantlf/bump-version-action@v2
-      with:
-        bump-files: src/npxcc.v
+    # - name: Bump version
+    #   id: bump
+    #   uses: prantlf/bump-version-action@v2
+    #   with:
+    #     bump-files: src/npxcc.v
     - name: Shelve changes
       uses: prantlf/shelve-changes-action@v1
     - name: Build and Test V
       run: make RELEASE=1
     - name: Shelve output
+      # if: ${{ steps.bump.outputs.bumped == 'true' }}
       uses: prantlf/shelve-output-action@v2
-      with:
-        enable: ${{ steps.bump.outputs.bumped }}
 
   macos:
     needs:
@@ -68,16 +67,16 @@ jobs:
         cache: 'pnpm'
     - name: Install Dependencies
       run: pnpm i --frozen-lockfile --no-verify-store-integrity
-    - name: Unshelve changes
-      if: ${{ needs.linux.outputs.changed == 'true' }}
-      uses: prantlf/unshelve-changes-action@v1
-      with:
-        files: ${{ needs.linux.outputs.changed-files }}
-        discard-shelf: false
+    # - name: Unshelve changes
+    #   if: ${{ needs.linux.outputs.changed == 'true' }}
+    #   uses: prantlf/unshelve-changes-action@v1
+    #   with:
+    #     files: ${{ needs.linux.outputs.changed-files }}
+    #     discard-shelf: false
     - name: Build and Test
       run: make RELEASE=1
     - name: Shelve output
-      if: ${{ needs.linux.outputs.changed == 'true' }}
+      # if: ${{ needs.linux.outputs.changed == 'true' }}
       uses: prantlf/shelve-output-action@v2
 
   windows:
@@ -100,20 +99,21 @@ jobs:
         cache: 'pnpm'
     - name: Install Dependencies
       run: pnpm i --frozen-lockfile --no-verify-store-integrity
-    - name: Unshelve changes
-      if: ${{ needs.linux.outputs.changed == 'true' }}
-      uses: prantlf/unshelve-changes-action@v1
-      with:
-        files: ${{ needs.linux.outputs.changed-files }}
-        discard-shelf: false
+    # - name: Unshelve changes
+    #   if: ${{ needs.linux.outputs.changed == 'true' }}
+    #   uses: prantlf/unshelve-changes-action@v1
+    #   with:
+    #     files: ${{ needs.linux.outputs.changed-files }}
+    #     discard-shelf: false
     - name: Build
       run: cmd /c make.bat
     - name: Shelve output
-      if: ${{ needs.linux.outputs.changed == 'true' }}
+      # if: ${{ needs.linux.outputs.changed == 'true' }}
       uses: prantlf/shelve-output-action@v2
 
   release:
-    if: ${{ github.ref_name == 'master' && needs.linux.outputs.changed == 'true' }}
+    # if: ${{ github.ref_name == 'master' && needs.linux.outputs.changed == 'true' }}
+    if: ${{ github.ref_name == 'master' }}
     needs:
       - linux
       - macos
@@ -122,32 +122,35 @@ jobs:
     steps:
     - name: Checkout sources
       uses: actions/checkout@v4
-    - name: Unshelve changes
-      uses: prantlf/unshelve-changes-action@v1
-      with:
-        files: ${{ needs.linux.outputs.changed-files }}
+    # - name: Unshelve changes
+    #   uses: prantlf/unshelve-changes-action@v1
+    #   with:
+    #     files: ${{ needs.linux.outputs.changed-files }}
     - name: Unshelve output
       uses: prantlf/unshelve-output-action@v3
     - name: Publish V
       uses: prantlf/finish-release-action@v1
+      with:
+        no-bump: true
+        no-commit: true
+        no-push: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Install PNPM
-      uses: pnpm/action-setup@v2
-      with:
-        version: latest
-    - name: Install Node
-      uses: actions/setup-node@v4
-      with:
-        node-version: 'lts/*'
-        cache: 'pnpm'
-    - name: Install Dependencies
-      run: pnpm i --frozen-lockfile --no-verify-store-integrity
-    - name: Publish NPM
-      if: ${{ github.ref_name == 'master' }}
-      uses: cycjimmy/semantic-release-action@v4
-      with:
-        branches: master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    # - name: Install PNPM
+    #   uses: pnpm/action-setup@v2
+    #   with:
+    #     version: latest
+    # - name: Install Node
+    #   uses: actions/setup-node@v4
+    #   with:
+    #     node-version: 'lts/*'
+    #     cache: 'pnpm'
+    # - name: Install Dependencies
+    #   run: pnpm i --frozen-lockfile --no-verify-store-integrity
+    # - name: Publish NPM
+    #   uses: cycjimmy/semantic-release-action@v4
+    #   with:
+    #     branches: master
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
