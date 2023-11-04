@@ -15,7 +15,7 @@ fn test_get_npm_cache_path() {
 	$if windows {
 		assert get_npm_cache_path()! != ''
 	} $else {
-		assert get_npm_cache_path()! == '${getenv("HOME")}/.npm'
+		assert get_npm_cache_path()! == '${getenv('HOME')}/.npm'
 	}
 }
 
@@ -23,7 +23,7 @@ fn test_get_cache_path() {
 	$if windows {
 		assert get_cache_path()! != ''
 	} $else {
-		assert get_cache_path()! == '${getenv("HOME")}/.npm/_npx'
+		assert get_cache_path()! == '${getenv('HOME')}/.npm/_npx'
 	}
 }
 

@@ -14,6 +14,7 @@ Parameters:
 	uninstall [names]  names of packages to remove (* means all)
 
 Options:
+  -d|--dry-run  only print what would be done instead of doing it
   -f|--force    do not report an error if a package is mising
   -v|--verbose  print extra information about the packages and the cache
   -V|--version  print the version of the executable and exits
@@ -24,6 +25,7 @@ Examples:
   $ npxcc un npx-cache-control'
 
 struct Opts {
+	dry_run bool
 	force   bool
 	verbose bool
 }
@@ -52,7 +54,7 @@ fn run() ! {
 			if args.len == 1 {
 				return error('package names are missing')
 			}
-			purge(args[1..], opts.force, opts.verbose)!
+			purge(args[1..], opts.dry_run, opts.force, opts.verbose)!
 		}
 		else {
 			return error('invalid command "${command}"')

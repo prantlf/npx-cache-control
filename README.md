@@ -31,6 +31,9 @@ Make sure, that you use [Node.js] version 18 or newer.
       uninstall [names]  names of packages to remove (* means all)
 
     Options:
+      -d|--dry-run  only print what would be done instead of doing it
+      -f|--force    do not report an error if a package is mising
+      -v|--verbose  print extra information about the packages and the cache
       -V|--version  print the version of the executable and exits
       -h|--help     print the usage information and exits
 

@@ -1,16 +1,24 @@
 import os { exists, join_path_single, rmdir_all }
 
-fn purge(names []string, force bool, verbose bool) ! {
+fn purge(names []string, dry_run bool, force bool, verbose bool) ! {
+	mode := if dry_run {
+		' (dry run)'
+	} else {
+		''
+	}
+
 	if names.contains('*') {
 		cache := get_cache_path()!
 		if verbose {
 			println('cache: "${cache}"')
 		}
 		if exists(cache) {
-			d.log('remove "%s"', cache)
-			rmdir_all(cache)!
+			d.log('remove "%s"${mode}', cache)
+			if !dry_run {
+				rmdir_all(cache)!
+			}
 			if verbose {
-				println('removed the whole cache')
+				println('removed the whole cache${mode}')
 			}
 		} else {
 			msg := 'cache not found'
@@ -40,11 +48,13 @@ fn purge(names []string, force bool, verbose bool) ! {
 		if name.len > 0 {
 			if names.contains(name) {
 				dir := join_path_single(cache, child)
-				d.log('remove "%s"', dir)
-				rmdir_all(dir)!
+				d.log('remove "%s"${mode}', dir)
+				if !dry_run {
+					rmdir_all(dir)!
+				}
 				remaining.delete(i)
 				if verbose {
-					println('removed: "${name}" (${ver})')
+					println('removed: "${name}" (${ver})${mode}')
 				}
 			}
 		}
