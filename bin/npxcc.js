@@ -10,8 +10,7 @@ try {
   await runAndReplaceLink({
     name: 'npxcc',
     linkNames: ['npx-cache-control', 'npxcc'],
-    scriptDirectory: __dirname,
-    verbose: true
+    scriptDirectory: __dirname
   })
 } catch (err) {
   reportError(err)
