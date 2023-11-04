@@ -1,5 +1,11 @@
 # Changes
 
+## [1.1.1](https://github.com/prantlf/npx-cache-control/compare/v1.1.0...v1.1.1) (2023-11-04)
+
+### Bug Fixes
+
+* Temporarily enable console logging during installation ([3a3d265](https://github.com/prantlf/npx-cache-control/commit/3a3d265141af7fdf3a3a82d4f695d164c68ced92))
+
 ## [1.1.0](https://github.com/prantlf/npx-cache-control/compare/v1.0.0...v1.1.0) (2023-11-04)
 
 ### Features
