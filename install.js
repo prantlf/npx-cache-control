@@ -16,7 +16,7 @@ try {
   let executable, version
   try {
     ({ executable, version } = await grab({
-      repository, platformSuffixes, targetDirectory: __dirname, unpackExecutable: true
+      repository, platformSuffixes, targetDirectory: __dirname, unpackExecutable: true, verbose: true
     }))
     console.log('downloaded and unpacked "%s" version %s', executable, version)
   } catch (err) {
@@ -27,7 +27,7 @@ try {
     executable = join(__dirname, 'npxcc')
     if (process.platform === 'win32') executable += '.exe'
   }
-  await installLink({ linkNames: ['npx-cache-control', 'npxcc'], executable, packageDirectory: __dirname })
+  await installLink({ linkNames: ['npx-cache-control', 'npxcc'], executable, packageDirectory: __dirname, verbose: true })
 } catch (err) {
   console.error(err)
   process.exitCode = 1
