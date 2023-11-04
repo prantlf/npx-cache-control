@@ -1,5 +1,11 @@
 # Changes
 
+## [1.1.3](https://github.com/prantlf/npx-cache-control/compare/v1.1.2...v1.1.3) (2023-11-04)
+
+### Bug Fixes
+
+* Upgrade link-bin-executable ([1c90652](https://github.com/prantlf/npx-cache-control/commit/1c906529d0230ab112ec748439b8aa92c209c709))
+
 ## [1.1.2](https://github.com/prantlf/npx-cache-control/compare/v1.1.1...v1.1.2) (2023-11-04)
 
 ### Bug Fixes
