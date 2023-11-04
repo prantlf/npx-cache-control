@@ -1,5 +1,11 @@
 # Changes
 
+## [1.1.2](https://github.com/prantlf/npx-cache-control/compare/v1.1.1...v1.1.2) (2023-11-04)
+
+### Bug Fixes
+
+* Re-enable debug-only logging during installation ([f43496a](https://github.com/prantlf/npx-cache-control/commit/f43496a6c0397a0787ec6ed49c5c84db13a9cfee))
+
 ## [1.1.1](https://github.com/prantlf/npx-cache-control/compare/v1.1.0...v1.1.1) (2023-11-04)
 
 ### Bug Fixes
