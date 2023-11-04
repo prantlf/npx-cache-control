@@ -8,14 +8,11 @@ Lists and purges packages cached when running `npx`.
 
 ## Installation
 
-This package is usually installed globally, so that you can use the `npxcc` executable from any directory. You can install it during the first usage with `npx` too:
+This package is usually installed globally, so that you can use the `npx-cache-control` executable or the short alias `npxcc`  from any directory:
 
 ```sh
 $ npm i -g npx-cache-control
-$ npx npx-cache-control ...
 ```
-
-Once installed globally, the script can be executed by a short alias `npxcc` too.
 
 Make sure, that you use [Node.js] version 18 or newer.
 
