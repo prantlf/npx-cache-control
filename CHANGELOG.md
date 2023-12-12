@@ -1,5 +1,11 @@
 # Changes
 
+## [1.3.0](https://github.com/prantlf/npx-cache-control/compare/v1.2.0...v1.3.0) (2023-12-12)
+
+### Features
+
+* Allow clearing empty directories in the npm cache ([8de0fd6](https://github.com/prantlf/npx-cache-control/commit/8de0fd6c71618348b2bdb7f813d8be19f874e9ff))
+
 ## [1.2.0](https://github.com/prantlf/npx-cache-control/compare/v1.1.3...v1.2.0) (2023-12-12)
 
 ### Features
