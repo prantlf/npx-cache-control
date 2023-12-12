@@ -1,5 +1,11 @@
 # Changes
 
+## [1.2.0](https://github.com/prantlf/npx-cache-control/compare/v1.1.3...v1.2.0) (2023-12-12)
+
+### Features
+
+* Support macos arm64 ([8aaa3d6](https://github.com/prantlf/npx-cache-control/commit/8aaa3d63d54a22f372c3eee8297db16dd92dc6d2))
+
 ## [1.1.3](https://github.com/prantlf/npx-cache-control/compare/v1.1.2...v1.1.3) (2023-11-04)
 
 ### Bug Fixes
