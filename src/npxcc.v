@@ -9,6 +9,7 @@ Usage: npxcc [options] <command> [parameters]
 Commands:
   ls|list                       lists packages stored in the npx cache
 	purge|rm|remove|un|uninstall  removes packages from the npx cache
+	clear                         removes empty directories in the npx cache
 
 Parameters:
 	uninstall [names]  names of packages to remove (* means all)
@@ -47,6 +48,9 @@ fn run() ! {
 
 	command := args[0]
 	match command {
+		'clear' {
+			clear(opts.verbose)!
+		}
 		'ls', 'list' {
 			list(opts.verbose)!
 		}

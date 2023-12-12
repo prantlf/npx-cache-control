@@ -23,6 +23,7 @@ Make sure, that you use [Node.js] version 18 or newer.
     Commands:
       ls|list                       lists packages stored in the npx cache
       purge|rm|remove|un|uninstall  removes packages from the npx cache
+    	clear                         removes empty directories in the npx cache
 
     Parameters:
       uninstall [names]  names of packages to remove (* means all)
