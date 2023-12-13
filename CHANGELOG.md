@@ -1,5 +1,11 @@
 # Changes
 
+## [1.3.1](https://github.com/prantlf/npx-cache-control/compare/v1.3.0...v1.3.1) (2023-12-13)
+
+### Bug Fixes
+
+* Upgrade dependencies ([ae3a84c](https://github.com/prantlf/npx-cache-control/commit/ae3a84c7a11a3dd55efd3b2a252cc614763e0126))
+
 ## [1.3.0](https://github.com/prantlf/npx-cache-control/compare/v1.2.0...v1.3.0) (2023-12-12)
 
 ### Features
