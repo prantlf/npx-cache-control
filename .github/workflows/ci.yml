@@ -41,6 +41,9 @@ jobs:
         cache: 'pnpm'
     - name: Install Dependencies
       run: pnpm i --frozen-lockfile --no-verify-store-integrity
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DEBUG: linkbe,grabghr
     - name: Test Node.js
       run: |
         node_modules/.bin/npxcc -V
@@ -82,6 +85,7 @@ jobs:
     - name: Install Dependencies
       run: pnpm i --frozen-lockfile --no-verify-store-integrity
       env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DEBUG: linkbe,grabghr
     - name: Test Node.js
       run: |
