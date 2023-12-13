@@ -54,7 +54,7 @@
     ]
   },
   "dependencies": {
-    "grab-github-release": "^0.2.0",
+    "grab-github-release": "^0.2.3",
     "link-bin-executable": "^1.0.2"
   },
   "devDependencies": {
