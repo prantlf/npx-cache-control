@@ -1,5 +1,11 @@
 # Changes
 
+## [1.4.0](https://github.com/prantlf/npx-cache-control/compare/v1.3.1...v1.4.0) (2023-12-14)
+
+### Features
+
+* Add the linux arm64 support ([068acde](https://github.com/prantlf/npx-cache-control/commit/068acde9a126e799a5fdc411c7e0c35ee8ae3b13))
+
 ## [1.3.1](https://github.com/prantlf/npx-cache-control/compare/v1.3.0...v1.3.1) (2023-12-13)
 
 ### Bug Fixes
