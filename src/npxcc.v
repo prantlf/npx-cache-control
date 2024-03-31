@@ -1,6 +1,6 @@
 import prantlf.cargs { Input, parse }
 
-const version = '1.4.0'
+const version = '1.4.1'
 
 const usage = 'Lists and purges packages cached when running npx.
 

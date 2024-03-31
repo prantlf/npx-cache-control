@@ -1,5 +1,11 @@
 # Changes
 
+## [1.4.1](https://github.com/prantlf/npx-cache-control/compare/v1.4.0...v1.4.1) (2024-03-31)
+
+### Bug Fixes
+
+* Upgrade dependencies to use download cache ([9491e08](https://github.com/prantlf/npx-cache-control/commit/9491e085a07241484fbdd4ef6f774d8db893a6fb))
+
 ## [1.4.0](https://github.com/prantlf/npx-cache-control/compare/v1.3.1...v1.4.0) (2023-12-14)
 
 ### Features
