@@ -1,7 +1,7 @@
 import { access } from 'fs/promises'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
-import grab from 'grab-github-release'
+import { grab } from 'grab-github-release'
 import { installLink } from 'link-bin-executable'
 
 const exists = file => access(file).then(() => true, () => false)
