@@ -1,6 +1,6 @@
 {
   "name": "npx-cache-control",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Lists and purges packages cached when running npx.",
   "author": {
     "name": "Ferdinand Prantl",

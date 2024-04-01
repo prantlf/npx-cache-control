@@ -1,5 +1,11 @@
 # Changes
 
+## [1.4.2](https://github.com/prantlf/npx-cache-control/compare/v1.4.1...v1.4.2) (2024-04-01)
+
+### Bug Fixes
+
+* Upgrade dependencies to rename cache directory ([12a057d](https://github.com/prantlf/npx-cache-control/commit/12a057dadbc95b9dc9b7315b5102b324d2908dde))
+
 ## [1.4.1](https://github.com/prantlf/npx-cache-control/compare/v1.4.0...v1.4.1) (2024-03-31)
 
 ### Bug Fixes
